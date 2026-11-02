@@ -1,0 +1,46 @@
+# Library Book Borrowing Records
+
+members = {
+    "Amit": {"Python": 3, "Java": 2},
+    "Rahul": {"Python": 0, "Java": 0},
+    "Sneha": {"Python": 4, "Java": 3},
+    "Priya": {"Python": 2, "Java": 1}
+}
+
+# Calculate average books borrowed
+total = 0
+count = 0
+
+for books in members.values():
+    borrowed = sum(books.values())
+    total += borrowed
+    count += 1
+
+average = total / count
+print("Average books borrowed:", average)
+
+# Calculate total borrowing of each book
+book_count = {}
+
+for books in members.values():
+    for book, num in books.items():
+        book_count[book] = book_count.get(book, 0) + num
+
+# Highest and lowest borrowed books
+highest = max(book_count, key=book_count.get)
+lowest = min(book_count, key=book_count.get)
+
+print("Highest borrowed book:", highest)
+print("Lowest borrowed book:", lowest)
+
+# Count members who borrowed no books
+zero = 0
+
+for books in members.values():
+    if sum(books.values()) == 0:
+        zero += 1
+
+print("Members who borrowed no books:", zero)
+
+# Most frequently borrowed book
+print("Most frequently borrowed book:", highest)
