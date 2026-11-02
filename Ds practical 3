@@ -1,0 +1,33 @@
+# Library Book Borrowing Records
+
+books = {
+    "Python": 10,
+    "Java": 15,
+    "C Programming": 5,
+    "DBMS": 0,
+    "Operating System": 8
+}
+
+# Calculate total and average borrowing
+total = sum(books.values())
+average = total / len(books)
+
+print("Average books borrowed:", average)
+
+# Find highest and lowest borrowed books
+highest = max(books, key=books.get)
+lowest = min(books, key=books.get)
+
+print("Highest borrowed book:", highest)
+print("Lowest borrowed book:", lowest)
+
+# Count members/books with zero borrowing
+count = 0
+for value in books.values():
+    if value == 0:
+        count += 1
+
+print("Number of books not borrowed:", count)
+
+# Display most frequently borrowed book
+print("Most frequently borrowed book:", highest)
